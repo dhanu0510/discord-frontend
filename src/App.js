@@ -1,49 +1,33 @@
-// modules
-import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from "react-router-dom";
 
 // components
-import Create from "./components/createStudents/CreateStudent";
-import Show from "./components/showStudents/showStudent";
-
-// style
-import useStyles from "./styles";
+import LoginPage from "./authPages/LoginPage/LoginPage";
+import RegisterPage from "./authPages/RegisterPage/RegisterPage";
+import Dashboard from "./Dashboard/Dashboard";
 
 function App() {
-  const classes = useStyles();
   return (
-    <div>
-      <Container maxWidth="lg">
-        <AppBar position="static" color="inherit" className={classes.appbar}>
-          <Typography variant="h2" className={classes.heading} align="center">
-            Students
-          </Typography>
-        </AppBar>
-        <Grow in>
-          <Container>
-            <Grid container justify="space-between" alignItems="stretch">
-              <Grid item xs={12} sm={7}>
-                <AppBar
-                  position="static"
-                  color="inherit"
-                  className={classes.appbar}
-                >
-                  <Show />
-                </AppBar>
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                <AppBar
-                  position="static"
-                  color="inherit"
-                  className={classes.appbar}
-                >
-                  <Create />
-                </AppBar>
-              </Grid>
-            </Grid>
-          </Container>
-        </Grow>
-      </Container>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
+        <Route exact path="/register">
+          <RegisterPage />
+        </Route>
+        <Route exact path="/dashboard">
+          <Dashboard />
+        </Route>
+        <Route path="/">
+          <Redirect to="/dashboard" />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
