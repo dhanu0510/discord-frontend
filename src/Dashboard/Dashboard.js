@@ -1,8 +1,7 @@
 import React from "react";
-import AuthBox from "../shared/components/AuthBox";
 
 const Dashboard = () => {
-  return <AuthBox>Dashboard</AuthBox>;
+  return <div>Dashboard</div>;
 };
 
 export default Dashboard;

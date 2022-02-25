@@ -6,6 +6,9 @@ import RegisterPageFooter from "./RegisterPageFooter";
 import { validateRegisterForm } from "../../shared/utils/validators";
 import { useHistory } from "react-router-dom";
 
+import { connect } from "react-redux";
+import { getActions } from "../../store/actions/authActions";
+
 const RegisterPage = ({ register }) => {
   const history = useHistory();
 
@@ -16,7 +19,12 @@ const RegisterPage = ({ register }) => {
   const [isFormValid, setIsFormValid] = useState(false);
 
   const handleRegister = () => {
-    console.log("register");
+    const userDetails = {
+      mail,
+      username,
+      password,
+    };
+    register(userDetails, history);
   };
 
   useEffect(() => {
@@ -50,4 +58,9 @@ const RegisterPage = ({ register }) => {
   );
 };
 
-export default RegisterPage;
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+export default connect(null, mapActionsToProps)(RegisterPage);

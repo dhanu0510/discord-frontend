@@ -29,7 +29,7 @@ const Input = styled("input")({
 });
 
 const InputsWithLabel = (props) => {
-  const { value, setValue, label, type, placeholder } = props;
+  const { value, setValue, label, type } = props;
   const handleValueChange = (e) => {
     setValue(e.target.value);
   };
