@@ -7,6 +7,9 @@ import { Typography } from "@mui/material";
 
 import { validateMail } from "../../shared/utils/validators";
 
+import { connect } from "react-redux";
+import { getActions } from "../../store/actions/friendsActions.js";
+
 // components
 import InputsWithLabel from "../../shared/components/InputsWithLabel";
 import CustomPrimaryButton from "../../shared/components/CustomPrimaryButton";
@@ -21,6 +24,12 @@ const AddFriendDialog = ({
 
   const handleSendInvitation = () => {
     // send friend req to server
+    sendFriendInvitation(
+      {
+        targetMailAddress: mail,
+      },
+      closeDialogHandler
+    );
   };
 
   const handleCloseDialog = () => {
@@ -69,4 +78,9 @@ const AddFriendDialog = ({
   );
 };
 
-export default AddFriendDialog;
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+export default connect(null, mapActionsToProps)(AddFriendDialog);
