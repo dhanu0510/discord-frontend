@@ -18,7 +18,6 @@ const checkOnlineUsers = (friends = [], onlineUsers = []) => {
 };
 
 const FriendsList = ({ friends, onlineUsers }) => {
-  console.log(friends);
   return (
     <MainContainer>
       {checkOnlineUsers(friends, onlineUsers).map((f) => (
