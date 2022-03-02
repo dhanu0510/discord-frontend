@@ -1,34 +1,30 @@
-import { Dialog, DialogTitle } from "@mui/material";
-import React, { useEffect } from "react";
-import { DialogActions } from "@mui/material";
-import { DialogContent } from "@mui/material";
-import { DialogContentText } from "@mui/material";
-import { Typography } from "@mui/material";
-
+import React, { useState, useEffect } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import Typography from "@mui/material/Typography";
 import { validateMail } from "../../shared/utils/validators";
-
-import { connect } from "react-redux";
-import { getActions } from "../../store/actions/friendsActions.js";
-
-// components
-import InputsWithLabel from "../../shared/components/InputsWithLabel";
+import InputWithLabel from "../../shared/components/InputWithLabel";
 import CustomPrimaryButton from "../../shared/components/CustomPrimaryButton";
+import { connect } from "react-redux";
+import { getActions } from "../../store/actions/friendsActions";
 
 const AddFriendDialog = ({
   isDialogOpen,
   closeDialogHandler,
   sendFriendInvitation = () => {},
 }) => {
-  const [mail, setMail] = React.useState("");
-  const [isFormValid, setIsFormValid] = React.useState("");
+  const [mail, setMail] = useState("");
+  const [isFormValid, setIsFormValid] = useState("");
 
   const handleSendInvitation = () => {
-    // send friend req to server
     sendFriendInvitation(
       {
         targetMailAddress: mail,
       },
-      closeDialogHandler
+      handleCloseDialog
     );
   };
 
@@ -50,22 +46,22 @@ const AddFriendDialog = ({
         <DialogContent>
           <DialogContentText>
             <Typography>
-              Invite your friends to join the your Discord community.
+              Enter e-mail address of friend which you would like to invite
             </Typography>
           </DialogContentText>
-
-          <InputsWithLabel
-            label="mail"
+          <InputWithLabel
+            label="Mail"
             type="text"
             value={mail}
             setValue={setMail}
+            placeholder="Enter mail address"
           />
         </DialogContent>
         <DialogActions>
           <CustomPrimaryButton
             onClick={handleSendInvitation}
             disabled={!isFormValid}
-            label="Invite"
+            label="Send"
             additionalStyles={{
               marginLeft: "15px",
               marginRight: "15px",
@@ -83,4 +79,5 @@ const mapActionsToProps = (dispatch) => {
     ...getActions(dispatch),
   };
 };
+
 export default connect(null, mapActionsToProps)(AddFriendDialog);

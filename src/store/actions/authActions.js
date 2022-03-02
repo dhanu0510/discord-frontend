@@ -26,7 +26,6 @@ const login = (userDetails, history) => {
     const response = await api.login(userDetails);
     console.log(response);
     if (response.error) {
-      console.log(response);
       dispatch(openAlertMessage(response?.exception?.response?.data));
     } else {
       const { userDetails } = response?.data;
@@ -43,7 +42,6 @@ const register = (userDetails, history) => {
     const response = await api.register(userDetails);
     console.log(response);
     if (response.error) {
-      // dispatch(openAlertMessage(response?.exception?.response?.data));
       dispatch(openAlertMessage(response?.exception?.response?.data));
     } else {
       const { userDetails } = response?.data;

@@ -4,10 +4,9 @@ import AuthBox from "../../shared/components/AuthBox";
 import RegisterPageInputs from "./RegisterPageInputs";
 import RegisterPageFooter from "./RegisterPageFooter";
 import { validateRegisterForm } from "../../shared/utils/validators";
-import { useHistory } from "react-router-dom";
-
 import { connect } from "react-redux";
 import { getActions } from "../../store/actions/authActions";
+import { useHistory } from "react-router-dom";
 
 const RegisterPage = ({ register }) => {
   const history = useHistory();
@@ -21,9 +20,10 @@ const RegisterPage = ({ register }) => {
   const handleRegister = () => {
     const userDetails = {
       mail,
-      username,
       password,
+      username,
     };
+
     register(userDetails, history);
   };
 
@@ -63,4 +63,5 @@ const mapActionsToProps = (dispatch) => {
     ...getActions(dispatch),
   };
 };
+
 export default connect(null, mapActionsToProps)(RegisterPage);

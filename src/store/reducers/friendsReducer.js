@@ -1,12 +1,12 @@
 import { friendsActions } from "../actions/friendsActions";
 
-const initstate = {
+const initState = {
   friends: [],
   pendingFriendsInvitations: [],
   onlineUsers: [],
 };
 
-const reducer = (state = initstate, action) => {
+const reducer = (state = initState, action) => {
   switch (action.type) {
     case friendsActions.SET_PENDING_FRIENDS_INVITATIONS:
       return {

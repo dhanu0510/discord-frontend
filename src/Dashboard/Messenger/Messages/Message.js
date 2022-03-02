@@ -1,13 +1,12 @@
 import React from "react";
 import { styled } from "@mui/system";
 import Avatar from "../../../shared/components/Avatar";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const MainContainer = styled("div")({
   width: "97%",
   display: "flex",
   marginTop: "10px",
-  fontFamily: "sans-serif",
 });
 
 const AvatarContainer = styled("div")({
@@ -20,19 +19,19 @@ const MessageContainer = styled("div")({
 });
 
 const MessageContent = styled("div")({
-  color: "#dcddde",
+  color: "#DCDDDE",
 });
 
 const SameAuthorMessageContent = styled("div")({
-  color: "#dcddde",
+  color: "#DCDDDE",
   width: "97%",
 });
-const SameAuthorMessageText = styled("div")({
+
+const SameAuthorMessageText = styled("span")({
   marginLeft: "70px",
-  fontFamily: "sans-serif",
 });
 
-const Message = ({ content, sameAuthor, userName, date, sameDay }) => {
+const Message = ({ content, sameAuthor, username, date, sameDay }) => {
   if (sameAuthor && sameDay) {
     return (
       <SameAuthorMessageContent>
@@ -40,23 +39,16 @@ const Message = ({ content, sameAuthor, userName, date, sameDay }) => {
       </SameAuthorMessageContent>
     );
   }
+
   return (
     <MainContainer>
       <AvatarContainer>
-        <Avatar username={userName} />
+        <Avatar username={username} />
       </AvatarContainer>
       <MessageContainer>
-        <Typography
-          variant="h4"
-          color="white"
-          sx={{
-            fontWeight: "bold",
-            fontSize: "14px",
-            color: "white",
-          }}
-        >
-          {userName}{" "}
-          <span style={{ fontSize: "12px", color: "#72767d" }}> {date}</span>
+        <Typography style={{ fontSize: "16px", color: "white" }}>
+          {username}{" "}
+          <span style={{ fontSize: "12px", color: "#72767d" }}>{date}</span>
         </Typography>
         <MessageContent>{content}</MessageContent>
       </MessageContainer>

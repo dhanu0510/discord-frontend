@@ -1,41 +1,37 @@
 import React from "react";
 import { styled } from "@mui/system";
 import Avatar from "../../../shared/components/Avatar";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const MainContainer = styled("div")({
   width: "98%",
-  // display: "columns ",
-  marginTop: "10px",
   display: "column",
-  // flexDirection: "column",
-  // alignItems: "center",
+  marginTop: "10px",
 });
 
-const MessagesHeader = ({ name = " " }) => {
+const MessagesHeader = ({ name = "" }) => {
   return (
     <MainContainer>
       <Avatar large username={name} />
       <Typography
         variant="h4"
-        color="white"
         sx={{
           fontWeight: "bold",
           color: "white",
-          marginLeft: "10px",
-          marginRight: "10px",
+          marginLeft: "5px",
+          marginRight: "5px",
         }}
       >
         {name}
       </Typography>
       <Typography
         sx={{
-          fontWeight: "bold",
-          color: "#B9bbbe",
-          marginLeft: "10px",
+          color: "#b9bbbe",
+          marginLeft: "5px",
+          marginRight: "5px",
         }}
       >
-        This is the beggining of the conversation with {name}
+        This is the beginning of your conversation with {name}
       </Typography>
     </MainContainer>
   );

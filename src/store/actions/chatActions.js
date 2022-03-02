@@ -1,25 +1,24 @@
-export const chatType = {
+export const chatTypes = {
   DIRECT: "DIRECT",
   GROUP: "GROUP",
 };
 
 export const chatActions = {
-  SET_CHOOSEN_CHAT_DETAILS: "SET_CHOOSEN_CHAT_DETAILS",
-  SET_MESSAGES: "SET_MESSAGES",
-  SET_CHAT_TYPE: "SET_CHAT_TYPE",
+  SET_CHOSEN_CHAT_DETAILS: "CHAT.SET_CHOSEN_CHAT_DETAILS",
+  SET_MESSAGES: "CHAT.SET_MESSAGES",
+  SET_CHAT_TYPE: "CHAT.SET_CHAT_TYPE",
 };
 
-export const getActions = (disapatch) => {
+export const getActions = (dispatch) => {
   return {
-    setChoosenChatDetails: (details, chatType) => {
-      disapatch(setChoosenChatDetails(details, chatType));
-    },
+    setChosenChatDetails: (details, chatType) =>
+      dispatch(setChosenChatDetails(details, chatType)),
   };
 };
 
-export const setChoosenChatDetails = (chatDetails, type) => {
+export const setChosenChatDetails = (chatDetails, type) => {
   return {
-    type: chatActions.SET_CHOOSEN_CHAT_DETAILS,
+    type: chatActions.SET_CHOSEN_CHAT_DETAILS,
     chatType: type,
     chatDetails,
   };

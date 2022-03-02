@@ -1,8 +1,6 @@
 import React from "react";
 import { styled } from "@mui/system";
-
-// component
-import DropDownMenu from "./DropDownMenu";
+import DropdownMenu from "./DropdownMenu";
 import ChosenOptionLabel from "./ChosenOptionLabel";
 
 const MainContainer = styled("div")({
@@ -11,7 +9,7 @@ const MainContainer = styled("div")({
   top: "0",
   height: "48px",
   borderBottom: "1px solid black",
-  backgroundColor: "#36393F",
+  backgroundColor: "#36393f",
   width: "calc(100% - 326px)",
   display: "flex",
   alignItems: "center",
@@ -23,7 +21,7 @@ const AppBar = () => {
   return (
     <MainContainer>
       <ChosenOptionLabel />
-      <DropDownMenu />
+      <DropdownMenu />
     </MainContainer>
   );
 };

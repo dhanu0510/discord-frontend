@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { styled } from "@mui/system";
 import ResizeRoomButton from "./ResizeRoomButton";
 import VideosContainer from "./VideosContainer";
-import RoomButtons from "./RoomButtons/RoomButton";
+import RoomButtons from "./RoomButtons/RoomButtons";
 
 const MainContainer = styled("div")({
   position: "absolute",
@@ -10,7 +10,7 @@ const MainContainer = styled("div")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  //   justifyContent: "center",
+  justifyContent: "center",
   backgroundColor: "#202225",
 });
 

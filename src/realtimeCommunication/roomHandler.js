@@ -19,6 +19,7 @@ export const createNewRoom = () => {
     store.dispatch(setIsUserJoinedOnlyWithAudio(audioOnly));
     socketConnection.createNewRoom();
   };
+
   const audioOnly = store.getState().room.audioOnly;
   webRTCHandler.getLocalStreamPreview(audioOnly, successCalbackFunc);
 };
@@ -51,8 +52,6 @@ export const updateActiveRooms = (data) => {
   });
 
   store.dispatch(setActiveRooms(rooms));
-
-  // console.log("update rooms:", activeRooms);
 };
 
 export const joinRoom = (roomId) => {

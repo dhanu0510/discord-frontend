@@ -1,26 +1,26 @@
 import React from "react";
-import InputsWithLabel from "../../shared/components/InputsWithLabel";
+import InputWithLabel from "../../shared/components/InputWithLabel";
 
 const RegisterPageInputs = (props) => {
   const { mail, setMail, username, setUsername, password, setPassword } = props;
 
   return (
     <>
-      <InputsWithLabel
+      <InputWithLabel
         value={mail}
         setValue={setMail}
         label="E-mail address"
         type="text"
         placeholder="Enter e-mail address"
       />
-      <InputsWithLabel
+      <InputWithLabel
         value={username}
         setValue={setUsername}
         label="Username"
         type="text"
         placeholder="Enter a username"
       />
-      <InputsWithLabel
+      <InputWithLabel
         value={password}
         setValue={setPassword}
         label="Password"

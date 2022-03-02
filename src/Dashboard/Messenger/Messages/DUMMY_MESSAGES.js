@@ -2,7 +2,7 @@ const DUMMY_MESSAGES = [
   {
     _id: 1,
     content: "hello",
-    sameAuthor: "false",
+    sameAuthor: false,
     author: {
       username: "Marek",
     },
@@ -12,7 +12,7 @@ const DUMMY_MESSAGES = [
   {
     _id: 2,
     content: "hello once again",
-    sameAuthor: "true",
+    sameAuthor: true,
     author: {
       username: "Marek",
     },
@@ -22,7 +22,7 @@ const DUMMY_MESSAGES = [
   {
     _id: 3,
     content: "hello third time",
-    sameAuthor: "true",
+    sameAuthor: true,
     author: {
       username: "Marek",
     },
@@ -50,4 +50,5 @@ const DUMMY_MESSAGES = [
     sameDay: false,
   },
 ];
+
 export default DUMMY_MESSAGES;

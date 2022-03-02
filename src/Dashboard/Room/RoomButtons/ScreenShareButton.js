@@ -25,6 +25,7 @@ const ScreenShareButton = ({
           "error occured when trying to get an access to screen share stream"
         );
       }
+
       if (stream) {
         setScreenSharingStream(stream);
         webRTCHandler.switchOutgoingTracks(stream);

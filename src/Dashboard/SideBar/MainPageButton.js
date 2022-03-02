@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 import GroupsIcon from "@mui/icons-material/Groups";
 
 const MainPageButton = () => {
@@ -9,6 +9,7 @@ const MainPageButton = () => {
         width: "48px",
         height: "48px",
         borderRadius: "16px",
+        margin: 0,
         padding: 0,
         minWidth: 0,
         marginTop: "10px",

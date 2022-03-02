@@ -5,9 +5,6 @@ import NewMessageInput from "./NewMessageInput";
 import { getDirectChatHistory } from "../../realtimeCommunication/socketConnection";
 
 const Wrapper = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
   flexGrow: 1,
 });
 

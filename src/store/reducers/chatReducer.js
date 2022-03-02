@@ -1,13 +1,14 @@
 import { chatActions } from "../actions/chatActions";
-const initialState = {
+
+const initState = {
   chosenChatDetails: null,
   chatType: null,
   messages: [],
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initState, action) => {
   switch (action.type) {
-    case chatActions.SET_CHOOSEN_CHAT_DETAILS:
+    case chatActions.SET_CHOSEN_CHAT_DETAILS:
       return {
         ...state,
         chosenChatDetails: action.chatDetails,

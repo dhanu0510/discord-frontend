@@ -16,7 +16,6 @@ const AlertNotification = ({
       onClose={closeAlertMessage}
       autoHideDuration={6000}
     >
-      {/* console.log(alertMessageContent); */}
       <Alert severity="info">{alertMessageContent}</Alert>
     </Snackbar>
   );

@@ -1,7 +1,5 @@
 import React from "react";
 import { styled } from "@mui/system";
-
-// components
 import AddFriendButton from "./AddFriendButton";
 import FriendsTitle from "./FriendsTitle";
 import FriendsList from "./FriendsList/FriendsList";

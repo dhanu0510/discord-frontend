@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { styled } from "@mui/system";
 import { connect } from "react-redux";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { sendDirectMessage } from "../../realtimeCommunication/socketConnection";
 
 const MainContainer = styled("div")({
@@ -21,39 +20,38 @@ const Input = styled("input")({
   borderRadius: "8px",
   fontSize: "14px",
   padding: "0 10px",
-  // outline: "none",
 });
 
 const NewMessageInput = ({ chosenChatDetails }) => {
   const [message, setMessage] = useState("");
-  const handleMessageChangeValue = (e) => {
-    setMessage(e.target.value);
+
+  const handleMessageValueChange = (event) => {
+    setMessage(event.target.value);
   };
-  const handleKeyPresses = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      if (message.length > 0) {
-        // choosenChatDetails.sendMessage(message);
-        handleSendMessage();
-        setMessage("");
-      }
+
+  const handleKeyPressed = (event) => {
+    if (event.key === "Enter") {
+      handleSendMessage();
     }
   };
 
   const handleSendMessage = () => {
-    sendDirectMessage({
-      receiverUserId: chosenChatDetails.id,
-      content: message,
-    });
+    if (message.length > 0) {
+      sendDirectMessage({
+        receiverUserId: chosenChatDetails.id,
+        content: message,
+      });
+      setMessage("");
+    }
   };
+
   return (
     <MainContainer>
-      <ArrowForwardIcon sx={{ color: "white" }} />
       <Input
-        placeholder={`Message @${chosenChatDetails.name}`}
+        placeholder={`Write message to ${chosenChatDetails.name}`}
         value={message}
-        onChange={handleMessageChangeValue}
-        onKeyDown={handleKeyPresses}
+        onChange={handleMessageValueChange}
+        onKeyDown={handleKeyPressed}
       />
     </MainContainer>
   );

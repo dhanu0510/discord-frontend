@@ -81,13 +81,6 @@ export const prepareNewPeerConnection = (connUserSocketId, isInitiator) => {
   });
 };
 
-const addNewRemoteStream = (remoteStream) => {
-  const remoteStreams = store.getState().room.remoteStreams;
-  const newRemoteStreams = [...remoteStreams, remoteStream];
-
-  store.dispatch(setRemoteStreams(newRemoteStreams));
-};
-
 export const handleSignalingData = (data) => {
   const { connUserSocketId, signal } = data;
 
@@ -95,6 +88,14 @@ export const handleSignalingData = (data) => {
     peers[connUserSocketId].signal(signal);
   }
 };
+
+const addNewRemoteStream = (remoteStream) => {
+  const remoteStreams = store.getState().room.remoteStreams;
+  const newRemoteStreams = [...remoteStreams, remoteStream];
+
+  store.dispatch(setRemoteStreams(newRemoteStreams));
+};
+
 export const closeAllConnections = () => {
   Object.entries(peers).forEach((mappedObject) => {
     const connUserSocketId = mappedObject[0];

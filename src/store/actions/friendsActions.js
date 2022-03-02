@@ -16,6 +16,13 @@ export const getActions = (dispatch) => {
   };
 };
 
+export const setPendingFriendsInvitations = (pendingFriendsInvitations) => {
+  return {
+    type: friendsActions.SET_PENDING_FRIENDS_INVITATIONS,
+    pendingFriendsInvitations,
+  };
+};
+
 export const setFriends = (friends) => {
   return {
     type: friendsActions.SET_FRIENDS,
@@ -30,20 +37,14 @@ export const setOnlineUsers = (onlineUsers) => {
   };
 };
 
-export const setPendingFriendsInvitations = (pendingFriendsInvitations) => {
-  return {
-    type: friendsActions.SET_PENDING_FRIENDS_INVITATIONS,
-    pendingFriendsInvitations,
-  };
-};
-
 const sendFriendInvitation = (data, closeDialogHandler) => {
   return async (dispatch) => {
     const response = await api.sendFriendInvitation(data);
+
     if (response.error) {
       dispatch(openAlertMessage(response.exception?.response?.data));
     } else {
-      dispatch(openAlertMessage("Friend invitation sent!"));
+      dispatch(openAlertMessage("Invitation has been sent!"));
       closeDialogHandler();
     }
   };
@@ -52,20 +53,23 @@ const sendFriendInvitation = (data, closeDialogHandler) => {
 const acceptFriendInvitation = (data) => {
   return async (dispatch) => {
     const response = await api.acceptFriendInvitation(data);
+
     if (response.error) {
       dispatch(openAlertMessage(response.exception?.response?.data));
     } else {
-      dispatch(openAlertMessage("Friend Request Accepted!"));
+      dispatch(openAlertMessage("Invitation accepted!"));
     }
   };
 };
+
 const rejectFriendInvitation = (data) => {
   return async (dispatch) => {
     const response = await api.rejectFriendInvitation(data);
+
     if (response.error) {
       dispatch(openAlertMessage(response.exception?.response?.data));
     } else {
-      dispatch(openAlertMessage("Friend Request Rejected!"));
+      dispatch(openAlertMessage("Invitation rejected!"));
     }
   };
 };

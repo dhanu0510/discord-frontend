@@ -1,6 +1,4 @@
 import React from "react";
-
-// material UI
 import Box from "@mui/material/Box";
 import { styled } from "@mui/system";
 
@@ -8,9 +6,9 @@ const BoxWrapper = styled("div")({
   width: "100%",
   height: "100vh",
   display: "flex",
-  justifyContent: "center",
   alignItems: "center",
-  background: "url('/images/login_bg.svg')",
+  justifyContent: "center",
+  background: "#5865F2",
 });
 
 const AuthBox = (props) => {
@@ -18,11 +16,11 @@ const AuthBox = (props) => {
     <BoxWrapper>
       <Box
         sx={{
-          width: "480px",
+          width: 700,
           height: 400,
-          bgcolor: "#36393F",
+          bgcolor: "#36393f",
           borderRadius: "5px",
-          boxShadow: "0px 2px 10px 0 rgba(0, 0, 0, 0.5)",
+          boxShadow: "0 2px 10px 0 rgb(0 0 0 / 20%)",
           display: "flex",
           flexDirection: "column",
           padding: "25px",

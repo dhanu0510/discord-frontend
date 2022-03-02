@@ -1,14 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { userRef, useEffect } from "react";
 import { styled } from "@mui/system";
 import MessagesHeader from "./MessagesHeader";
 import { connect } from "react-redux";
-// import DUMMY_MESSAGES from "./DUMMY_MESSAGES";
+import DUMMY_MESSAGES from "./DUMMY_MESSAGES";
 import Message from "./Message";
 import DateSeparator from "./DateSeparator";
 
 const MainContainer = styled("div")({
-  height: "calc(100%-60px)",
+  height: "calc(100% - 60px)",
   overflow: "auto",
+  display: "flex",
+  flexDirection: "column",
   alignItems: "center",
 });
 
@@ -19,25 +21,19 @@ const convertDateToHumanReadable = (date, format) => {
     yy: date.getFullYear().toString().slice(-2),
     yyyy: date.getFullYear(),
   };
+
   return format.replace(/mm|dd|yy|yyy/gi, (matched) => map[matched]);
 };
 
 const Messages = ({ chosenChatDetails, messages }) => {
-  // console.log("chosenChatDetails", chosenChatDetails);
-  const messageEndRef = useRef(null);
-
-  useEffect(() => {
-    messageEndRef.current.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
   return (
     <MainContainer>
       <MessagesHeader name={chosenChatDetails?.name} />
       {messages.map((message, index) => {
-        console.log("message", message);
         const sameAuthor =
           index > 0 &&
           messages[index].author._id === messages[index - 1].author._id;
+
         const sameDay =
           index > 0 &&
           convertDateToHumanReadable(new Date(message.date), "dd/mm/yy") ===
@@ -45,6 +41,7 @@ const Messages = ({ chosenChatDetails, messages }) => {
               new Date(messages[index - 1].date),
               "dd/mm/yy"
             );
+
         return (
           <div key={message._id} style={{ width: "97%" }}>
             {(!sameDay || index === 0) && (
@@ -56,9 +53,8 @@ const Messages = ({ chosenChatDetails, messages }) => {
               />
             )}
             <Message
-              key={message._id}
               content={message.content}
-              userName={message.author.username}
+              username={message.author.username}
               sameAuthor={sameAuthor}
               date={convertDateToHumanReadable(
                 new Date(message.date),
@@ -69,7 +65,6 @@ const Messages = ({ chosenChatDetails, messages }) => {
           </div>
         );
       })}
-      <div ref={messageEndRef} />
     </MainContainer>
   );
 };

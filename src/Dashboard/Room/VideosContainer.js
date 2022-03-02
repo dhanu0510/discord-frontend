@@ -19,7 +19,6 @@ const VideosContainer = ({
     <MainContainer>
       <Video
         stream={screenSharingStream ? screenSharingStream : localStream}
-        // stream={localStream}
         isLocalStream
       />
       {remoteStreams.map((stream) => (
