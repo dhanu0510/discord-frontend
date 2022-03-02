@@ -1,5 +1,5 @@
 import React from "react";
-import { style, styled } from "@mui/system";
+import { styled } from "@mui/system";
 import Avatar from "../../../shared/components/Avatar";
 import Typography from "@mui/material/Typography";
 import { connect } from "react-redux";

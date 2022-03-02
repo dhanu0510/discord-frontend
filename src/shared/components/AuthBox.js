@@ -13,7 +13,6 @@ const BoxWrapper = styled("div")({
 
 const AuthBox = (props) => {
   const height = props.height || "400px";
-  console.log(height);
   return (
     <BoxWrapper>
       <Box
