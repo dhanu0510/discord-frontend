@@ -7,7 +7,7 @@ import { logout } from "../../shared/utils/auth";
 import { getActions } from "../../store/actions/roomActions";
 import { connect } from "react-redux";
 
-const DropdownMenu = ({ audioOnly, setAudioOnly }) => {
+const DropDownMenu = ({ audioOnly, setAudioOnly }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -57,4 +57,4 @@ const mapActionsToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStoreStateToProps, mapActionsToProps)(DropdownMenu);
+export default connect(mapStoreStateToProps, mapActionsToProps)(DropDownMenu);
