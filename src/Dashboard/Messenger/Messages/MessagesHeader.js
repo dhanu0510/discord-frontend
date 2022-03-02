@@ -20,9 +20,10 @@ const MessagesHeader = ({ name = "" }) => {
           color: "white",
           marginLeft: "5px",
           marginRight: "5px",
+          marginTop: "10px",
         }}
       >
-        {name}
+        @{name}
       </Typography>
       <Typography
         sx={{
@@ -31,7 +32,7 @@ const MessagesHeader = ({ name = "" }) => {
           marginRight: "5px",
         }}
       >
-        This is the beginning of your conversation with {name}
+        This is the beginning of your conversation with @{name}
       </Typography>
     </MainContainer>
   );

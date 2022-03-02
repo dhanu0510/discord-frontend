@@ -9,7 +9,7 @@ const RegisterPageInputs = (props) => {
       <InputWithLabel
         value={mail}
         setValue={setMail}
-        label="E-mail address"
+        label="Email"
         type="text"
         placeholder="Enter e-mail address"
       />

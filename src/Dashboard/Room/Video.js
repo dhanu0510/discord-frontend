@@ -11,6 +11,7 @@ const MainContainer = styled("div")({
 const VideoEl = styled("video")({
   width: "100%",
   height: "100%",
+  // transform: "rotateY(180deg)"
 });
 
 const Video = ({ stream, isLocalStream }) => {

@@ -20,6 +20,10 @@ const Input = styled("input")({
   borderRadius: "8px",
   fontSize: "14px",
   padding: "0 10px",
+  "&:focus": {
+    outline: "none",
+    border: "1px solid #050505",
+  },
 });
 
 const NewMessageInput = ({ chosenChatDetails }) => {
@@ -48,7 +52,7 @@ const NewMessageInput = ({ chosenChatDetails }) => {
   return (
     <MainContainer>
       <Input
-        placeholder={`Write message to ${chosenChatDetails.name}`}
+        placeholder={`Write message to ${chosenChatDetails.name} →`}
         value={message}
         onChange={handleMessageValueChange}
         onKeyDown={handleKeyPressed}

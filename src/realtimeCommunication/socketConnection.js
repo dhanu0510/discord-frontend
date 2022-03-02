@@ -22,7 +22,7 @@ export const connectWithSocketServer = (userDetails) => {
 
   socket.on("connect", () => {
     console.log("succesfully connected with socket.io server");
-    console.log(socket.id);
+    // console.log(socket.id);
   });
 
   socket.on("friends-invitations", (data) => {
@@ -41,7 +41,6 @@ export const connectWithSocketServer = (userDetails) => {
   });
 
   socket.on("direct-chat-history", (data) => {
-    console.log(data);
     updateDirectChatHistoryIfActive(data);
   });
 
@@ -75,7 +74,6 @@ export const connectWithSocketServer = (userDetails) => {
 };
 
 export const sendDirectMessage = (data) => {
-  console.log(data);
   socket.emit("direct-message", data);
 };
 

@@ -8,27 +8,34 @@ const Wrapper = styled("div")({
   width: "100%",
 });
 
-const Label = styled("p")({
+const Label = styled("div")({
   color: "#b9bbbe",
   textTransform: "uppercase",
-  fontWeight: "600",
-  fontSize: "16px",
+  fontWeight: "bold",
+  fontSize: "14px",
+  marginBottom: "10px",
 });
 
 const Input = styled("input")({
   flexGrow: 1,
   height: "40px",
-  border: "1px solid black",
-  borderRadius: "5px",
+  border: "1px solid #222222",
+  borderRadius: "3px",
+  fontFamily: "Helvetica Neue",
   color: "#dcddde",
-  background: "#35393f",
+  background: "#303239",
   margin: 0,
   fontSize: "16px",
-  padding: "0 5px",
+  padding: "0 10px",
+  letterSpacing: "0.5px",
+  "&:focus": {
+    outline: "none",
+    borderColor: "#0da6e8",
+  },
 });
 
 const InputWithLabel = (props) => {
-  const { value, setValue, label, type, placeholder } = props;
+  const { value, setValue, label, type } = props;
 
   const handleValueChange = (event) => {
     setValue(event.target.value);
@@ -37,12 +44,7 @@ const InputWithLabel = (props) => {
   return (
     <Wrapper>
       <Label>{label}</Label>
-      <Input
-        value={value}
-        onChange={handleValueChange}
-        type={type}
-        placeholder={placeholder}
-      />
+      <Input value={value} onChange={handleValueChange} type={type} />
     </Wrapper>
   );
 };

@@ -38,8 +38,11 @@ const RegisterPage = ({ register }) => {
   }, [mail, username, password, setIsFormValid]);
 
   return (
-    <AuthBox>
-      <Typography variant="h5" sx={{ color: "white " }}>
+    <AuthBox height="450px">
+      <Typography
+        variant="h5"
+        sx={{ color: "white ", fontWeight: "bold", textAlign: "center" }}
+      >
         Create an account
       </Typography>
       <RegisterPageInputs

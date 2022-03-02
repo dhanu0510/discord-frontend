@@ -1,4 +1,4 @@
-import React, { userRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { styled } from "@mui/system";
 import MessagesHeader from "./MessagesHeader";
 import { connect } from "react-redux";
@@ -26,6 +26,11 @@ const convertDateToHumanReadable = (date, format) => {
 };
 
 const Messages = ({ chosenChatDetails, messages }) => {
+  const messageEndRef = useRef(null);
+
+  useEffect(() => {
+    messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
   return (
     <MainContainer>
       <MessagesHeader name={chosenChatDetails?.name} />
@@ -65,6 +70,7 @@ const Messages = ({ chosenChatDetails, messages }) => {
           </div>
         );
       })}
+      <div ref={messageEndRef} />
     </MainContainer>
   );
 };
