@@ -71,7 +71,7 @@
 ## Screenshots
 
 <div>
-    <img src="Screenshots/first.png" width="50%">
+    <img src="Screenshots/first.png" width="45%">
     <br/>
-    <img src="Screenshots/second.png" width="50%">
+    <img src="Screenshots/second.png" width="45%">
 </div>
