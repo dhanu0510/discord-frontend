@@ -72,6 +72,5 @@
 
 <div style="display:flex;">
     <img src="Screenshots/first.png" width="45%">
-    <br/>
     <img src="Screenshots/second.png" width="45%">
 </div>
