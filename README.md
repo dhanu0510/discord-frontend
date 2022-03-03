@@ -38,20 +38,6 @@
 - Realtime Chat and Video Chat
 - Screen Share
 
-## Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/dhanu0510/discord-frontend.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
-3. Run the server
-   ```sh
-   npm start
-   ```
 
 ## Built With
 
