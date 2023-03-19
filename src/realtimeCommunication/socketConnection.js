@@ -14,7 +14,7 @@ let socket = null;
 export const connectWithSocketServer = (userDetails) => {
   const jwtToken = userDetails.token;
 
-  socket = io("https://discord-backend-dhanu-europe.herokuapp.com/", {
+  socket = io("http://localhost:3001/", {
     auth: {
       token: jwtToken,
     },

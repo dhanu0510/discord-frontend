@@ -2,7 +2,7 @@ import axios from "axios";
 import { logout } from "./shared/utils/auth";
 
 const apiClient = axios.create({
-  baseURL: "https://discord-backend-dhanu-europe.herokuapp.com/api",
+  baseURL: "http://localhost:3001/api",
   timeout: 10000,
 });
 
